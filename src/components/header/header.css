@@ -1,0 +1,30 @@
+.header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffffff;
+    padding:5px 0;
+}
+
+.menu-btn{
+    border:none;
+    background:none;
+    font-size:28px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    max-width:100px;
+}
+.logo img{
+width: 100%;
+}
+.logo h2{
+    font-family:serif;
+    color:#4e2633;
+}
+
+.logo span{
+    color:#4e2633;
+}

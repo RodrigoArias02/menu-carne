@@ -1,0 +1,20 @@
+.menu-container{
+    max-width:430px;
+    margin:auto;
+    min-height:100vh;
+    background:#f8f6f4;
+    padding-bottom:90px;
+}
+
+.title{
+    text-align:center;
+    margin:25px 0;
+    font-family:serif;
+}
+
+.products-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    padding: 10px 15px;
+}

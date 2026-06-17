@@ -1,0 +1,68 @@
+.product-card{
+    display:flex;
+    width:100%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.1);
+}
+
+.product-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    max-width:40%;
+}
+
+.product-info{
+    padding:12px;
+}
+
+.product-info h3{
+    font-family:serif;
+    font-size:1.3rem;
+    margin-bottom:5px;
+}
+
+.product-info p{
+    color:#555;
+    margin-bottom:10px;
+}
+
+.price{
+    display:block;
+
+    color:#4e2633;
+    font-size:1.5rem;
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.add-btn{
+    width:100%;
+
+    padding:10px;
+
+    border-radius:10px;
+    border:2px solid #4e2633;
+
+    background:white;
+    color:#4e2633;
+
+    font-weight:bold;
+}
+.product-card:nth-child(1),
+.product-card:nth-child(2) {
+    flex-direction: column;
+    flex: 2 ;
+}
+/* SELECCIÓN CORRECTA: Selecciona la imagen de la tarjeta 1 y de la tarjeta 2 */
+.product-card:nth-child(1) img,
+.product-card:nth-child(2) img {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    max-width: none; /* Ahora sí se aplicará solo a las dos primeras */
+}

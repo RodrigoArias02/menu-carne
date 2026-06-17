@@ -1,0 +1,38 @@
+.categories{
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    padding:0 15px;
+}
+
+.categories a{
+    display: flex; /* Crucial para que la sombra y los márgenes funcionen bien */
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    border: none;
+    background: none;
+    color: #333;
+    margin: 0 auto;
+    text-decoration: none; /* Opcional: quita el subrayado por defecto del enlace */
+}
+.categories a p{
+    text-align: center;
+    height: 40px;
+    margin-top: 5px;
+}
+.categories svg{
+    color:#4e2633;
+
+}
+.categories a img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+
+}
+.selected{
+    color:#4e2633;
+    font-weight:bold;
+    border-bottom:3px solid #4e2633;
+}

@@ -1,0 +1,23 @@
+:root {
+  --color-vino: #4e2633;
+
+  --color-fondo: #f5f3f1;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--color-fondo);
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    display:block;
+}
