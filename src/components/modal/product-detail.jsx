@@ -1,10 +1,11 @@
 
-const ProductDetail = () => {
+const ProductDetail = ({price}) => {
+  console.log(price)
     return(
         <div className="product-details">
           <section className="price-normal">
             <p>Precio Normal</p>
-            <p>$1200 / kg</p>
+            <p>{price}</p>
           </section>
           <section className="price-offer">
             <p>Oferta 2kg</p>

@@ -7,36 +7,8 @@ import Modal from "./components/modal/modal.jsx";
 import ContentModalCard from "./components/modal/contentModalCard.jsx";
 import "./menu.css";
 import { useState } from "react";
-const products = [
-  {
-    id: 1,
-    name: "Milanesas de pollo Rebozadas",
-    description: "Raw, pre-breaded cutlets",
-    price: "$1200/kg",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaWA9ePJ8F5PUPKb6mNwuJCxWQEd9ALVz0zVbNBwbDzWL7Qv16Vha41cU&s=10",
-  },
-  {
-    id: 2,
-    name: "Hamburguesas de Carne Vacuna",
-    description: "Raw patties, 4 pack",
-    price: "$1800 x 4",
-    image: "https://as2.ftcdn.net/jpg/00/80/57/39/1000_F_80573907_41jXLIrB4bDISKPwFnyjlVPmLr3YtWZo.jpg",
-  },
-  {
-    id: 3,
-    name: "Carne Picada Especial",
-    description: "Raw minced meat",
-    price: "$1400/kg",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwPdFLzNUEaUEMp3VdabgA3eAJsUpcc9BhfMk6-e3hpvNBHJ8DkZSiZ6s&s=10",
-  },
-  {
-    id: 4,
-    name: "Bife de Chorizo",
-    description: "Single raw steak",
-    price: "$1700/u",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqvNdxzYzh8D4uQBkB8hfh7gr0i2lPjzJgOINM9UHo9Q&s=10",
-  },
-];
+import {products} from "./utils/products.js"
+
 
 function Menu() {
   const [isModalOpen, setIsModalOpen] = useState(false);

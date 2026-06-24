@@ -18,8 +18,8 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div class="paralelogramo">
-          <span class="texto-paralelogramo">Mas Elegido</span>
+        <div className="paralelogramo">
+          <span className="texto-paralelogramo">Mas Elegido</span>
         </div>
         <button className="modal-close" onClick={onClose}>
           <i className="fa-solid fa-xmark"></i>
