@@ -19,11 +19,13 @@
 
     color:#4e2633;
     font-size:1.3rem;
+
+    z-index:10;
 }
 .iconCartAndQuaintity{
     position:relative;
 }
-.quantity{
+.quantityCart{
     position:absolute;
     top: -3px;
     right: -5px;

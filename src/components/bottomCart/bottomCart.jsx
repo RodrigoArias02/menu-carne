@@ -6,7 +6,7 @@ function BottomCart() {
 
       <span className="iconCartAndQuaintity"> 
         <CartOutlineIcon height="40" />
-        <span className="quantity">5</span>
+        <span className="quantityCart">5</span>
       </span>
 
       <p>

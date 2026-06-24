@@ -1,18 +1,9 @@
 import "./productCard.css";
-
-function ProductCard({
-  image,
-  name,
-  description,
-  price
-}) {
+function ProductCard({ image, name,description, price, onClick }) {
   return (
-    <article className="product-card">
+    <article className="product-card"  onClick={onClick}>
 
-      <img
-        src={image}
-        alt={name}
-      />
+      <img  src={image} alt={name}  />
 
       <div className="product-info">
 

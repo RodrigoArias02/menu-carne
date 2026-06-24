@@ -3,9 +3,10 @@ import Navbar from "./components/navbar/navbar.jsx";
 import Categories from "./components/categories/categories.jsx";
 import ProductCard from "./components/productCard/productCard.jsx";
 import BottomCart from "./components/bottomCart/bottomCart.jsx";
-
+import Modal from "./components/modal/modal.jsx";
+import ContentModalCard from "./components/modal/contentModalCard.jsx";
 import "./menu.css";
-
+import { useState } from "react";
 const products = [
   {
     id: 1,
@@ -38,15 +39,28 @@ const products = [
 ];
 
 function Menu() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+    const openModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
   return (
     <div className="menu-container">
-
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <ContentModalCard product={selectedProduct} />
+      </Modal>
       <Header />
 
       <Navbar />
-      <h1 className="title">
-        Menú de Productos
-      </h1>
+      <h1 className="title"> Menú de Productos</h1>
 
       <Categories />
 
@@ -58,10 +72,11 @@ function Menu() {
             name={product.name}
             description={product.description}
             price={product.price}
+            onClick={() => openModal(product)}
           />
         ))}
       </div>
-
+    
       <BottomCart />
 
     </div>
