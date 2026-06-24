@@ -61,6 +61,16 @@
 
     font-weight:bold;
 }
+.category-products{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+   
+}
+.category-products h2{
+width: 100%;
+flex:1;
+}
 .product-card:nth-child(1),
 .product-card:nth-child(2) {
     flex-direction: column;

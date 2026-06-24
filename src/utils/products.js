@@ -7,7 +7,7 @@ export const products = [
     price: 1200,
     offer: { quantity: "2 kg", price: 2100 },
     category: "milanesas",
-    image: "",
+    image: "https://carneya.com.ar/wp-content/uploads/2024/03/milanesa-de-pollo-01.webp",
   },
   {
     id: 2,
@@ -17,17 +17,17 @@ export const products = [
     price: 1500,
     offer: { quantity: "2 kg", price: 2700 },
     category: "milanesas",
-    image: "/images/milanesa-carne.jpg",
+    image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/milanesas-de-c76d65bb0b0bc3dfc217128641403679-1024-1024.webp",
   },
   {
     id: 3,
-    name: "Milanesas Napolitanas",
+    name: "Milanesas Rellenas",
     subtitle: "Lista para horno",
-    description: "Con salsa, jamón y queso.",
+    description: "Con jamón y mozzarella.",
     price: 1800,
     offer: null,
     category: "milanesas",
-    image: "/images/milanesa-napo.jpg",
+    image: "https://www.crujen.com.ar/images/productos/crujen/medium/image2022081413132091586.jpg",
   },
   {
     id: 4,
@@ -37,27 +37,27 @@ export const products = [
     price: 1800,
     offer: { quantity: "2 packs", price: 3200 },
     category: "hamburguesas",
-    image: "/images/hamburguesa-clasica.jpg",
+    image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/28-87d81c47962baa103c17234880082479-1024-1024.webp",
   },
   {
     id: 5,
-    name: "Hamburguesas Premium",
+    name: "Hamburguesas Rellenas",
     subtitle: "4 Pack - Premium Blend",
-    description: "Jugosas y con el equilibrio perfecto de grasa.",
+    description: "Rellena de panceta ahumada jamon y queso provolone",
     price: 2200,
     offer: { quantity: "2 packs", price: 3900 },
     category: "hamburguesas",
-    image: "/images/hamburguesa-premium.jpg",
+    image: "https://img.freepik.com/fotos-premium/hamburguesas-carne-cruda-empanadas-carne-molida-tomillo-sobre-tabla-cortar-madera-fondo-madera-oscura-vista-superior_89816-27893.jpg",
   },
   {
     id: 6,
     name: "Hamburguesas de Pollo",
-    subtitle: "4 unidades",
-    description: "Suaves y sabrosas para toda la familia.",
+    subtitle: "Hamburguesa de pollo y verdeo",
+    description: "Hamburguesa de pollo saborizada con verdeo",
     price: 1600,
     offer: null,
     category: "hamburguesas",
-    image: "/images/hamburguesa-pollo.jpg",
+    image: "https://granjaselpato.com.ar/wp-content/uploads/2021/05/hamb-verdeo-2.jpg",
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ export const products = [
     price: 1900,
     offer: { quantity: "2 kg", price: 3500 },
     category: "pollo",
-    image: "/images/pechuga.jpg",
+    image: "https://media.istockphoto.com/id/1074830312/es/foto/pechuga-de-pollo-org%C3%A1nico-crudo.jpg?s=612x612&w=0&k=20&c=-dCyN8Iks0MqGSwcFBO5TOWcVXMsJkNLBdyoSS2Ei1w=",
   },
   {
     id: 8,
@@ -200,3 +200,24 @@ export const products = [
     image: "/images/combo-familiar.jpg",
   },
 ];
+
+export const categoryOrder = {
+  milanesas: ["Rebozadas artesanalmente y listas para cocinar."],
+  hamburguesas: ["Blends premium con todo el sabor de la carne vacuna."],
+  pollo: ["Pollo fresco y preparado con la mejor calidad."],
+  carne: ["Cortes seleccionados para cada ocasión."],
+  chorizos: ["Tradición, sabor y calidad para tu parrilla."],
+  combos: ["Más variedad y ahorro en una sola compra."],
+};
+
+export default function agruparProductos(products) {
+  return products.reduce((acc, product) => {
+    if (!acc[product.category]) {
+      acc[product.category] = [];
+    }
+
+    acc[product.category].push(product);
+
+    return acc;
+  }, {});
+}

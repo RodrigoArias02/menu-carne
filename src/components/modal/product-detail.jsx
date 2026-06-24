@@ -5,7 +5,7 @@ const ProductDetail = ({price}) => {
         <div className="product-details">
           <section className="price-normal">
             <p>Precio Normal</p>
-            <p>{price}</p>
+             <p>${price} / kg</p>
           </section>
           <section className="price-offer">
             <p>Oferta 2kg</p>

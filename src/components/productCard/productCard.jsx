@@ -11,7 +11,7 @@ function ProductCard({ image, name,description, price, onClick }) {
         <p>{description}</p>
 
         <span className="price">
-          {price}
+          ${price}
         </span>
 
         <button className="add-btn">

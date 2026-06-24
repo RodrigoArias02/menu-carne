@@ -8,7 +8,8 @@ import ContentModalCard from "./components/modal/contentModalCard.jsx";
 import "./menu.css";
 import { useState } from "react";
 import {products} from "./utils/products.js"
-
+import agruparProductos from "./utils/products.js"
+import { categoryOrder } from "./utils/products.js";
 
 function Menu() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,12 +20,14 @@ function Menu() {
     setIsModalOpen(true);
   };
 
+
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
   };
+  const groupedProducts = agruparProductos(products);
 
-  return (
+    return (
     <div className="menu-container">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <ContentModalCard product={selectedProduct} />
@@ -37,15 +40,29 @@ function Menu() {
       <Categories />
 
       <div className="products-grid">
-        {products.map(product => (
-          <ProductCard
-            key={product.id}
-            image={product.image}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            onClick={() => openModal(product)}
-          />
+        {Object.entries(groupedProducts).map(([category, products]) => (
+          <div key={category} className="div-category-span" id={category}>
+            <span className="text-category">
+              <h2>{category}</h2>
+              <p>{categoryOrder[category]}</p>
+              <hr />
+            </span>
+
+            <div key={category}  className="category-products">
+              
+
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  image={product.image}
+                  name={product.name}
+                  description={product.description}
+                  price={product.price}
+                  onClick={() => openModal(product)}
+                />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     
