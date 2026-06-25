@@ -45,9 +45,10 @@
     border-radius: 15px;
     padding: 10px;
       color: var(--color-vino);
+      min-height: 75px;
 }
 .price-normal{
-    flex: 1;
+    flex: 2.4;
     text-align: center;
     position: relative;
     height: 24px;
@@ -65,13 +66,13 @@
 .price-normal p:nth-child(2){
     font-size: 1.3rem;
     font-weight: 400;
-    text-decoration: line-through;
+    
 }
 .price-offer{
-    flex: 1;
+    flex: 3;
     text-align: center;
     border-left: 1px solid #ccc;
-   
+   min-height: 55px;
 }
 .price-offer p:nth-child(1){
     font-size: .8rem;
@@ -178,4 +179,7 @@
 .shipping svg{
     width: 15px;
     height: 15px;
+}
+.lineThrough{
+    text-decoration: line-through;
 }

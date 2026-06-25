@@ -4,6 +4,9 @@ import Quantity from "./quantity.jsx";
 import CartOutlineIcon from '@iconify-react/ion/cart-outline';
 import notFound from "../../assets/notFound.png"
 const ContentModalCard = ({product}) => {
+    // 3. Ahorro
+
+  const ahorro=product.offer!=null ? product.offer.price - product.price:"";
   return (
     <div className="content-modal-card">
         <div className="container-img">
@@ -12,14 +15,16 @@ const ContentModalCard = ({product}) => {
         <h2>{product.name}</h2>
         <h3>4 pack - premium blend</h3>
         <p className='description-card'>{product.description}</p>
-        <ProductDetails price={product.price} />
-        <span className="label">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
-            <path d="M0 0h32v32H0z" fill="none" />
-            <path fill="currentColor" d="M17.934 3a3.25 3.25 0 0 0-2.298.952l-11.68 11.68a3.25 3.25 0 0 0 0 4.596l7.818 7.818a3.25 3.25 0 0 0 4.596 0l11.68-11.68a3.25 3.25 0 0 0 .952-2.298V6.25A3.25 3.25 0 0 0 25.752 3zm-.884 2.366A1.25 1.25 0 0 1 17.934 5h7.818c.69 0 1.25.56 1.25 1.25v7.818c0 .332-.132.65-.366.884l-11.68 11.68a1.25 1.25 0 0 1-1.768 0L5.37 18.814a1.25 1.25 0 0 1 0-1.768zM23.002 11a2 2 0 1 0 0-4a2 2 0 0 0 0 4" />
-          </svg>
-          <p>Ahorras <b>$360</b> llevando 2kg</p>
-        </span>
+        <ProductDetails product={product} />
+        {product.offer != null && (
+          <span className="label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+              <path d="M0 0h32v32H0z" fill="none" />
+              <path fill="currentColor" d="M17.934 3a3.25 3.25 0 0 0-2.298.952l-11.68 11.68a3.25 3.25 0 0 0 0 4.596l7.818 7.818a3.25 3.25 0 0 0 4.596 0l11.68-11.68a3.25 3.25 0 0 0 .952-2.298V6.25A3.25 3.25 0 0 0 25.752 3zm-.884 2.366A1.25 1.25 0 0 1 17.934 5h7.818c.69 0 1.25.56 1.25 1.25v7.818c0 .332-.132.65-.366.884l-11.68 11.68a1.25 1.25 0 0 1-1.768 0L5.37 18.814a1.25 1.25 0 0 1 0-1.768zM23.002 11a2 2 0 1 0 0-4a2 2 0 0 0 0 4" />
+            </svg>
+            <p>Ahorras <b>${ahorro}</b> llevando 2kg</p>
+          </span>
+        )}
         <Quantity initial={1} min={1} max={100} onChange={(value) => console.log(value)} />
         <span className="label">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
