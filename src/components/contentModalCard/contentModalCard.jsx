@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import './contentModalCard.css';
 import ProductDetails from "./product-detail.jsx";
 import Quantity from "./quantity.jsx";
 import CartOutlineIcon from '@iconify-react/ion/cart-outline';
 import notFound from "../../assets/notFound.png"
+import {useCart} from "../../hooks/useCart.jsx"
 const ContentModalCard = ({product}) => {
-    // 3. Ahorro
 
   const ahorro=product.offer!=null ? product.offer.price - product.price:"";
+    const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
+  const productoAnadir = ()=>{
+    addToCart(product,quantity)
+  }
   return (
     <div className="content-modal-card">
         <div className="container-img">
@@ -25,7 +31,7 @@ const ContentModalCard = ({product}) => {
             <p>Ahorras <b>${ahorro}</b> llevando 2kg</p>
           </span>
         )}
-        <Quantity initial={1} min={1} max={100} onChange={(value) => console.log(value)} />
+        <Quantity initial={1} min={1} max={100} clase="" onChange={(value) =>setQuantity(value)} />
         <span className="label">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
@@ -33,7 +39,7 @@ const ContentModalCard = ({product}) => {
           </svg>
           <p>Cantidad: 2kg (4 unidades)</p>
         </span>
-        <button className="btnAddCart">
+        <button className="btnAddCart" onClick={productoAnadir}>
           <CartOutlineIcon height="25"/>
           Agregar al carrito
         </button>

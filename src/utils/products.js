@@ -1,3 +1,9 @@
+import combos from "../assets/combo.png";
+import burguer from "../assets/iconoburguer.png";
+import chori from "../assets/chori.png";
+import vaca from "../assets/vaca.png";
+import pollo from "../assets/gallina.png";
+import milas from "../assets/milanesas.png";
 export const products = [
   {
     id: 1,
@@ -67,7 +73,7 @@ export const products = [
     price: 1900,
     offer: { kg: 2, price: 3500 },
     category: "pollo",
-    image: "https://media.istockphoto.com/id/1074830312/es/foto/pechuga-de-pollo-org%C3%A1nico-crudo.jpg?s=612x612&w=0&k=20&c=-dCyN8Iks0MqGSwcFBO5TOWcVXMsJkNLBdyoSS2Ei1w=",
+    image: "https://www.shutterstock.com/image-photo/raw-chicken-breast-bone-skin-260nw-2358056743.jpg",
   },
   {
     id: 8,
@@ -77,7 +83,7 @@ export const products = [
     price: 2100,
     offer: null,
     category: "pollo",
-    image: "/images/suprema.jpg",
+    image: "https://media.istockphoto.com/id/1074830312/es/foto/pechuga-de-pollo-org%C3%A1nico-crudo.jpg?s=612x612&w=0&k=20&c=-dCyN8Iks0MqGSwcFBO5TOWcVXMsJkNLBdyoSS2Ei1w=",
   },
   {
     id: 9,
@@ -87,7 +93,7 @@ export const products = [
     price: 1700,
     offer: { kg: 3, price: 3000 },
     category: "pollo",
-    image: "/images/patitas.jpg",
+    image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/pata-y-muslo-8ad3129d544b1eee7217128517940397-1024-1024.webp",
   },
   {
     id: 10,
@@ -107,7 +113,7 @@ export const products = [
     price: 1400,
     offer: { kg: 2, price: 2500 },
     category: "carne",
-    image: "/images/picada.jpg",
+    image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/carne-picada-001dcf00a982bc722c17442951212844-1024-1024.webp",
   },
   {
     id: 12,
@@ -117,7 +123,7 @@ export const products = [
     price: 2800,
     offer: null,
     category: "carne",
-    image: "/images/bife.jpg",
+    image: "https://raffe.com.ar/wp-content/uploads/2019/06/Bife-de-Chorizo-Raffe.jpg",
   },
   {
     id: 13,
@@ -127,7 +133,7 @@ export const products = [
     price: 2600,
     offer: { kg: 2, price: 4700 },
     category: "carne",
-    image: "/images/vacio.jpg",
+    image: "https://carnesargentinas.es/wp-content/uploads/2020/05/vacio-entero-1.jpg",
   },
   {
     id: 14,
@@ -137,7 +143,7 @@ export const products = [
     price: 2500,
     offer: null,
     category: "carne",
-    image: "/images/asado.jpg",
+    image: "https://thumbs.dreamstime.com/b/asado-crudo-8478920.jpg",
   },
   {
     id: 15,
@@ -221,3 +227,12 @@ export default function agruparProductos(products) {
     return acc;
   }, {});
 }
+
+export const categories = [
+  { id: "milanesas", name: "Milanesas", image: milas },
+  { id: "hamburguesas", name: "Hamburguesas", image: burguer },
+  { id: "pollo", name: "Aves", image: pollo },
+  { id: "carne", name: "Carne Vacuna", image: vaca },
+  { id: "chorizos", name: "Chorizos", image: chori },
+  { id: "combos", name: "Combos", image: combos },
+];

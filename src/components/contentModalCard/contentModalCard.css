@@ -112,13 +112,20 @@
     background: var(--color-vino);
     color: #fff;
     border: none;
-    padding: 5px 20px;
+   width: 30px;
+   height: 30px;
     cursor: pointer;
 }
 .quantity button:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px 0 0 10px;
 }
 .quantity button:nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 0 10px 10px 0;
 }
 .quantity input{
@@ -127,7 +134,7 @@
     border: none;
     outline: none;
     font-size: 1.3rem;
-    padding: 5px 0;
+
     border-top: 1px solid var(--color-vino);
     border-bottom: 1px solid var(--color-vino);
     font-weight: 600;
@@ -182,4 +189,7 @@
 }
 .lineThrough{
     text-decoration: line-through;
+}
+.quantity .paddingAndWidth{
+    width: 60px;
 }

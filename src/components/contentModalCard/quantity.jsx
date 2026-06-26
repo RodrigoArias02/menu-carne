@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-const Quantity = ({ initial, min, max, onChange }) => {
+const Quantity = ({ initial, min, max, onChange, claseInput }) => {
   const [quantity, setQuantity] = useState(initial);
-
+  console.log(claseInput)
   const updateQuantity = (nextValue) => {
     const value = Math.max(min, Math.min(max, nextValue));
     setQuantity(value);
@@ -22,6 +22,7 @@ const Quantity = ({ initial, min, max, onChange }) => {
         min={min}
         max={max}
         readOnly
+        className={claseInput}
       />
       <button
         type="button" onClick={() => updateQuantity(quantity + 1)}disabled={quantity >= max}>

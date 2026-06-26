@@ -1,7 +1,7 @@
 import "./modal.css";
 import { useEffect } from "react";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, clase }) => {
     useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="paralelogramo">
+        <div className={"paralelogramo "+ clase}>
           <span className="texto-paralelogramo">Mas Elegido</span>
         </div>
         <button className="modal-close" onClick={onClose}>

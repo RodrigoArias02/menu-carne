@@ -29,6 +29,8 @@
     font-family:serif;
     font-size:1.2rem;
     margin-bottom:5px;
+    max-height: 44px;
+    overflow: hidden;
 }
 
 .product-info p{

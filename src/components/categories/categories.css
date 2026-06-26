@@ -5,7 +5,7 @@
     padding:0 15px;
     background: var(--color-fondo);
     transition: all 1s;
-    scroll-snap-type: x mandatory; /* Activa el auto-ajuste horizontal */
+    /* scroll-snap-type: x mandatory;  */
 }
 
 .categories a{
@@ -43,6 +43,7 @@
     font-weight:bold;
     border-bottom:3px solid #4e2633;
     scroll-snap-align: center;
+    
 }
 
 .categories.hidden {
