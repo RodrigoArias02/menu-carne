@@ -7,18 +7,18 @@
     padding:15px;
     z-index: 20;
     overflow-y: auto;
+    max-width: 430px;
 }
 .modal-content{
     width:100%;
     height:min-content;
-    background:#F8F6F4;
+    background:#F8F4EE;
     border-radius:20px;
     padding:15px 15px 5px 15px;
     position:relative;
     font-family: sans-serif;
     overflow-y: auto;
-  
-    
+    margin: auto;
 }
 .modal-close{
     position:absolute;

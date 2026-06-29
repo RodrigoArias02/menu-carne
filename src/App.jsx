@@ -14,14 +14,14 @@ import agruparProductos from "./utils/products.js";
 import { useCart } from "./hooks/useCart.jsx";
 
 function Menu() {
-  const { cart, totalItems } = useCart();
+  const { cart, totalCart } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalChildren, setModalChildren] = useState(null);
   const [claseNone, setClaseNone] = useState("");
   const groupedProducts = agruparProductos(products);
 
   const openProductModal = (product) => {
-    console.log(1);
+  
       setClaseNone("")
     setModalChildren(
       <ContentModalCard product={product} />
@@ -30,7 +30,7 @@ function Menu() {
   };
 
   const openCartModal = (cart) => {
-    console.log(2);
+   
     setClaseNone("none")
     setModalChildren(
       <ContentModalCart cart={cart}/>
@@ -51,7 +51,7 @@ function Menu() {
 
       <Header />
 
-      <Navbar />
+      <Navbar openCartModal={openCartModal} />
 
       <h1 className="title">Menú de Productos</h1>
 
@@ -74,6 +74,7 @@ function Menu() {
                   name={product.name}
                   description={product.description}
                   price={product.price}
+                  offer={product.offer}
                   onClick={() => openProductModal(product)}
                 />
               ))}
@@ -84,7 +85,7 @@ function Menu() {
 
       <BottomCart
         cantProducts={cart.length}
-        total={totalItems}
+        total={totalCart}
         onClick={() => openCartModal(cart)}
       />
     </div>

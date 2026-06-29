@@ -4,10 +4,46 @@
     background:white;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.1);
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+    position: relative;
+}
+.cart-off {
+    display: flex;
+    flex-direction: column;
+    background: #76242D;
+    position: absolute;
+    left: 13px;
+    padding: 10px 5px;
+    border-radius: 16px 16px 26px 26px;
+    color: white;
+    gap: 2px;
+    font-family: "Inter", sans-serif;
+    /* 1. Borde INTERIOR (el que ya tenías) */
+    border: 1px solid #FBD6AF; 
+    top: -5px;
+    /* 2. Borde EXTERIOR (un anillo extra por fuera) */
+    /* Sintaxis: x-offset, y-offset, blur, spread, color */
+    box-shadow: 0 0 0 2px #76242D; 
+}
+.cart-off{
+    text-align: center;
+    
+}
+.cart-off p:nth-child(1){
+    display: flex;
+    font-size: .5rem;
+    gap: 5px;
 }
 
+.cart-off p:nth-child(2){
+    font-size: 1.2rem;
+    font-weight: 500;
+    
+}
+.cart-off p:nth-child(3){
+    font-size: .7rem;
+    font-weight: 600;
+}
 .product-card img{
     width:100%;
     height:100%;
@@ -39,10 +75,18 @@
     height: 36px;
     overflow: hidden;
 }
-
+.prices{
+    display: flex;
+    gap: 5px;
+}
+.prices span{
+    margin: auto 0;
+}
+.prices span:nth-child(2){
+    text-decoration: line-through;
+}
 .price{
     display:block;
-
     color:#4e2633;
     font-size:1.5rem;
     font-weight:bold;

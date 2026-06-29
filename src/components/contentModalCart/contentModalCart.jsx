@@ -1,85 +1,134 @@
 import "./contentModalCart.css";
 import Quantity from "../contentModalCard/quantity.jsx";
-function ContentModalCart({ cart }) {
-  const subtotal = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0,
-  );
+import { TrashIcon, TruckIcon } from "../../utils/icons.jsx";
+import { useCart } from "../../hooks/useCart.jsx";
+import ClockIcon from '@iconify-react/mdi-light/clock';
+import {
+  condicionOferta,
+  precioNormalPorKg,
+  precioOfertaPorKg,
+  descuentoPorProducto,
+  descuentoTotalProductos,
+  porcentajeDescuento,
+  precioTotalOfertaPorProducto
+} from "../../utils/products.js";
+
+function ContentModalCart() {
+  const { clearCart, cart, totalCart, subTotalCart, removeFromCart } = useCart();
+  const descuentoTotal = descuentoTotalProductos(cart);
 
   return (
-    <div className="cart-modal">
+    <aside className="cart-modal">
       <header className="cart-header">
-        <div>
-          <h2>Mi Carrito</h2>
-          <p>{cart.length} productos</p>
-        </div>
+        <h2>Mi Carrito</h2>
+        <p>{cart.length} productos</p>
       </header>
 
-      <div className="cart-products">
-        {cart.map((product) => (
-          <article className="cart-product" key={product.id}>
-            <div className="container-img-cart">
-              <img src={product.image} alt={product.name} />    
-            </div>
-            
+      <section className="cart-products-list">
+        {cart.map((product) => {
+          const enOferta = condicionOferta(product);
 
-            <div className="cart-info">
-              <div className="cart-top">
-                <div className="div-title-subtitle">
+          return (
+            <article className="cart-item" key={product.id}>
+              <div className="cart-item-img-container">
+                <img src={product.image} alt={product.name} />
+              </div>
+
+              <div className="cart-item-info">
+                <header className="cart-item-top">
                   <h3>{product.name}</h3>
-                  <p className="subtitle">{product.subtitle}</p>
-                </div>
-                <div className="cart-delete-price">
-                  <button className="delete-btn">r</button>
-                  <h4>{product.price * product.quantity}</h4>
+                  <button 
+                    className="delete-btn" 
+                    onClick={() => removeFromCart(product.id)}
+                    aria-label="Eliminar producto"
+                  >
+                    <TrashIcon />
+                  </button>
+                </header>
+
+                <div className="cart-item-details">
+                  <div className="price-kg-selector">
+                    <div className="kg-prices">
+                      <p className={enOferta ? "price-original line-through" : "price-original"}>
+                        ${product.price} / kg
+                      </p>
+                      {enOferta && <p className="price-offer-kg">${precioOfertaPorKg(product)} / kg</p>}
+                      {enOferta && <span className="discount-badge">{porcentajeDescuento(product)}</span>}
+                    </div>
+                    
+                    <div className="quantity-selector">
+                      <Quantity
+                        id={product.id}
+                        initial={product.quantity}
+                        min={1}
+                        max={100}
+                        claseInput="paddingAndWidth"
+                        claseMargen="margin-quantity"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="price-totals-container">
+                    {enOferta && (
+                      <div className="price-before">
+                        <p>Antes</p>
+                        <p>${precioNormalPorKg(product)}</p>
+                      </div>
+                    )}
+                    
+                    <div className="price-now">
+                      {enOferta && <p>Ahora</p>}
+                      <h4>${precioTotalOfertaPorProducto(product)}</h4>
+                      {enOferta && (
+                        <p className="savings-text">
+                          Ahorrás: ${descuentoPorProducto(product)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-              <section className="section-quantity-priceUnite">
-                <p className="unit-price">${product.price} / kg</p>
+            </article>
+          );
+        })}
+      </section>
 
-                <div className="quantity-selector">
-                  <Quantity initial={1} min={1} max={100} claseInput="paddingAndWidth"  />
-                </div>
-              </section>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <div className="cart-offer">
-        <p>
-          ¡Llevando <strong>4 kg</strong> obtenés
-          <strong> 10% de descuento</strong>!
+      <div className="cart-banner-offer">
+        <ClockIcon height="26"/>
+        <p>  ¡Hacé tu pedido con <strong>2 hs</strong> de anticipación y obtené un <strong>5% de descuento</strong>!
         </p>
       </div>
 
-      <div className="cart-summary">
-        <div>
+      <footer className="cart-summary">
+        <div className="summary-row">
           <span>Subtotal</span>
-          <span>${subtotal}</span>
+          <span>${subTotalCart}</span>
         </div>
 
-        <div>
+        <div className="summary-row discount-row">
           <span>Descuento</span>
-          <span className="discount">-$0</span>
+          <span className="discount-amount">-${descuentoTotal}</span>
         </div>
 
-        <hr />
+        <hr className="summary-divider" />
 
-        <div className="total">
+        <div className="summary-row total-row">
           <span>TOTAL</span>
-          <span>${subtotal}</span>
+          <span>${totalCart}</span>
         </div>
-      </div>
 
-      <button className="btn-whatsapp">ENVIAR PEDIDO POR WHATSAPP</button>
+        <button className="btn-confirm">CONFIRMAR PEDIDO</button>
 
-      <button className="btn-clear">VACIAR CARRITO</button>
+        <button className="btn-clear" onClick={clearCart}>
+          <TrashIcon /> VACIAR CARRITO
+        </button>
 
-      <footer className="cart-footer">
-        Envíos en Necochea y zonas cercanas
+        <p className="shipping-info">
+          <TruckIcon />
+          Envío a Necochea y zonas cercanas
+        </p>
       </footer>
-    </div>
+    </aside>
   );
 }
 

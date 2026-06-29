@@ -58,6 +58,14 @@ export function CartProvider({ children }) {
     (acc, item) => acc + item.price,
     0
   );
+  const subTotalCart = cart.reduce(
+    (acc, item) => acc +  item.price * item.quantity,
+    0
+  );
+  const totalCart = cart.reduce(
+    (acc, item) => acc + (item.offer!=null? (item.offer.price/item.offer.kg)* item.quantity : item.price * item.quantity),
+    0
+  );
 
   return (
     <CartContext.Provider
@@ -67,6 +75,8 @@ export function CartProvider({ children }) {
         removeFromCart,
         updateQuantity,
         clearCart,
+        subTotalCart,
+        totalCart,
         totalItems,
       }}
     >

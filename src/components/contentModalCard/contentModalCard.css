@@ -108,35 +108,57 @@
     margin: 10px auto;
 
 }
+.quantity-value{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    position: relative;
+    z-index: 3;
+}
+
+.quantity-value span{
+    font-size:.8em;
+    color:#777;
+    font-weight:500;
+    position: absolute;
+    right: 32px;
+    bottom: 5px;
+}
 .quantity button{
     background: var(--color-vino);
     color: #fff;
     border: none;
-   width: 30px;
-   height: 30px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
+    z-index: 5;
 }
 .quantity button:nth-child(1){
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px ;
+    position: relative;
+    left: 10px;
 }
 .quantity button:nth-child(3){
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px;
+    position: relative;
+    right: 10px;
 }
 .quantity input{
-    width: 80px;
+    width: 110px;
     text-align: center;
     border: none;
     outline: none;
     font-size: 1.3rem;
-
-    border-top: 1px solid var(--color-vino);
-    border-bottom: 1px solid var(--color-vino);
+    height: 100%;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
     font-weight: 600;
 }
 .label{
@@ -181,7 +203,7 @@
     position: relative;
     font-size: .8rem;
     gap: 5px;
-   margin: 10px 0px 5px 0px;
+    margin: 10px 0px 5px 0px;
 }
 .shipping svg{
     width: 15px;
@@ -190,6 +212,14 @@
 .lineThrough{
     text-decoration: line-through;
 }
+
+.margin-quantity{
+    margin: 0;
+    margin-left: -10px;
+}
 .quantity .paddingAndWidth{
-    width: 60px;
+    width: 90px;
+}
+.paddingAndWidth + span{
+    right:23px;
 }

@@ -181,7 +181,7 @@ export const products = [
     subtitle: "Para 4 personas",
     description: "Asado, chorizos y morcillas.",
     price: 8500,
-    offer: { quantity: "Promo", price: 7500 },
+    offer: null,
     category: "combos",
     image: "/images/combo-parrilla.jpg",
   },
@@ -191,7 +191,7 @@ export const products = [
     subtitle: "Ideal para reuniones",
     description: "12 hamburguesas + panes.",
     price: 7200,
-    offer: { quantity: "Promo", price: 6500 },
+    offer: null,
     category: "combos",
     image: "/images/combo-burger.jpg",
   },
@@ -201,7 +201,7 @@ export const products = [
     subtitle: "Variedad para toda la familia",
     description: "Pollo, milanesas y hamburguesas.",
     price: 9800,
-    offer: { quantity: "Promo", price: 8900 },
+    offer: null,
     category: "combos",
     image: "/images/combo-familiar.jpg",
   },
@@ -236,3 +236,44 @@ export const categories = [
   { id: "chorizos", name: "Chorizos", image: chori },
   { id: "combos", name: "Combos", image: combos },
 ];
+export const precioOfertaPorKg=(product)=>{
+  return  condicionOferta(product) ? product.offer.price / product.offer.kg : "";
+}
+export const precioNormalPorKg=(product)=>{
+  return  product.price*product.quantity;
+}
+export const descuentoPorProducto = (product)=>{
+  let descuento;
+  if(product.offer!=null){
+    descuento=product.price*product.quantity-(precioOfertaPorKg(product))*product.quantity;
+  }else{
+    descuento=null;
+  }
+  return descuento
+}
+export const descuentoTotalProductos = (cart)=>{
+  let descuento=0;
+  cart.forEach(product => {
+    if(product.offer!=null){
+    descuento=descuento+descuentoPorProducto(product)
+    }
+  });
+
+  return descuento
+}
+export const porcentajeDescuento = (product) =>{
+ let porc = condicionOferta(product) ? "-" + Math.round(((product.price - precioOfertaPorKg(product)) / product.price) * 100) + "%" : "";
+
+  return porc
+}
+export const precioTotalOfertaPorProducto=(product)=>{
+  return condicionOferta(product) ? (precioOfertaPorKg(product)) * product.quantity : product.price * product.quantity;
+}
+export const condicionOferta=(product)=>{
+  if(product.offer!=null && product.quantity >= product.offer.kg){
+    return true
+  }else{
+
+    return false
+  }
+}
