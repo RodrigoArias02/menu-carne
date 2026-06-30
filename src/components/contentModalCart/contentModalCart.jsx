@@ -2,7 +2,6 @@ import "./contentModalCart.css";
 import Quantity from "../contentModalCard/quantity.jsx";
 import { TrashIcon, TruckIcon } from "../../utils/icons.jsx";
 import { useCart } from "../../hooks/useCart.jsx";
-import ClockIcon from '@iconify-react/mdi-light/clock';
 import {
   condicionOferta,
   precioNormalPorKg,
@@ -10,10 +9,11 @@ import {
   descuentoPorProducto,
   descuentoTotalProductos,
   porcentajeDescuento,
-  precioTotalOfertaPorProducto
+  precioTotalOfertaPorProducto,
+
 } from "../../utils/products.js";
 
-function ContentModalCart() {
+function ContentModalCart({onSiguientePaso}) {
   const { clearCart, cart, totalCart, subTotalCart, removeFromCart } = useCart();
   const descuentoTotal = descuentoTotalProductos(cart);
 
@@ -94,7 +94,8 @@ function ContentModalCart() {
       </section>
 
       <div className="cart-banner-offer">
-        <ClockIcon height="26"/>
+
+        
         <p>  ¡Hacé tu pedido con <strong>2 hs</strong> de anticipación y obtené un <strong>5% de descuento</strong>!
         </p>
       </div>
@@ -117,7 +118,7 @@ function ContentModalCart() {
           <span>${totalCart}</span>
         </div>
 
-        <button className="btn-confirm">CONFIRMAR PEDIDO</button>
+        <button className="btn-confirm" onClick={onSiguientePaso}>CONFIRMAR PEDIDO</button>
 
         <button className="btn-clear" onClick={clearCart}>
           <TrashIcon /> VACIAR CARRITO

@@ -6,6 +6,7 @@ import BottomCart from "./components/bottomCart/bottomCart.jsx";
 import Modal from "./components/modal/modal.jsx";
 import ContentModalCard from "./components/contentModalCard/contentModalCard.jsx";
 import ContentModalCart from "./components/contentModalCart/contentModalCart.jsx"; // <-- crearás este componente
+import ComprarModal from "./components/compraModal/compraModal.jsx";
 import "./menu.css";
 
 import { useState } from "react";
@@ -28,12 +29,21 @@ function Menu() {
     );
     setIsModalOpen(true);
   };
-
-  const openCartModal = (cart) => {
-   
-    setClaseNone("none")
+  const openConfirmarPedidoModal = () => {
     setModalChildren(
-      <ContentModalCart cart={cart}/>
+    <ComprarModal /> // El componente que querés que se abra ahora
+  );
+  // setIsModalOpen(true); // Ya está en true, pero te asegurás de que siga abierto
+};
+  const openCartModal = () => {
+    setClaseNone("none");
+    
+    setModalChildren(
+      // Le pasamos la función al carrito mediante una prop (ej: onSiguientePaso)
+      <ContentModalCart 
+      
+        onSiguientePaso={openConfirmarPedidoModal} 
+      />
     );
     setIsModalOpen(true);
   };

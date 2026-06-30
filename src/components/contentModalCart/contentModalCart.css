@@ -34,13 +34,14 @@
   display: flex;
   border-bottom: 1px solid #dadada;
   padding-bottom: 18px;
-  min-height: 170px;
+  min-height: 185px;
 }
 
 .cart-item-img-container {
-  width: 100%;
-  flex: 3;
+  width: 98px;
+  
   margin-bottom: 25px;
+
 }
 
 .cart-item-img-container img {
@@ -143,7 +144,7 @@
 }
 
 .price-before p:nth-child(2) {
-  font-size: 1rem;
+  font-size: .9rem;
   text-decoration: line-through;
   margin-bottom: 10px;
 }
@@ -171,7 +172,10 @@
 
 .price-totals-container p,
 .price-totals-container h4 {
-  margin-left: 10px;
+  width: min-content;
+}
+.price-totals-container h4 {
+  font-size: 1rem;
 }
 
 /* Banner Informativo */
@@ -186,12 +190,8 @@
   border-radius: 16px;
   color: var(--color-vino);
 }
-.cart-banner-offer svg{
-    position: relative;
-    left: 23px;
-    top: -5px;
-    margin-bottom: auto;
-}
+
+
 .cart-banner-offer p {
 
   text-align: center;
