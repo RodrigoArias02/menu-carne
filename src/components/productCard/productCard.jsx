@@ -1,5 +1,6 @@
 import "./productCard.css";
 import notFound from "../../assets/notFoundCard.png"
+
 function ProductCard({ image, name,description, price, offer, onClick }) {
   return (
     <article className="product-card"  onClick={onClick}>

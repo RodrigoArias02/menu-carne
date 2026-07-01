@@ -1,0 +1,23 @@
+.btnAddCart{
+    background: var(--color-vino);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: .2px;
+    font-family: "Inter", sans-serif;
+}
+.btnAddCart svg{
+    width: 1.2rem;
+    height: 100%;
+}

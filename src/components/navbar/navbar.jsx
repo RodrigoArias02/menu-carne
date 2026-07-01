@@ -10,7 +10,7 @@ function Navbar({openCartModal}) {
     <nav className="top-nav">
       <HomeIcon height="25"  />
       <MagnifyIcon height="25" />
-      <span className="active">
+      <span>
         MENU
       </span>
       <CartOutlineIcon height="25"  onClick={() => openCartModal(cart)} />

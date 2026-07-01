@@ -12,6 +12,10 @@
     object-position: center;
 }
 .content-modal-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 25px);
     margin-top: 30px;
 }
 .content-modal-card h2{
@@ -178,24 +182,7 @@
     border-radius: 50%;
 }
 
-.btnAddCart{
-    background: var(--color-vino);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
 
-}
 .shipping{
     display: flex;
     justify-content: center;

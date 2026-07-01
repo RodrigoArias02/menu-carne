@@ -1,0 +1,53 @@
+.div-pay {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+.section-pay{
+    display: flex;
+    gap: 15px;
+}
+.pay{
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #D1C7BF;
+    background: #FFF;
+    border-radius: 8px;
+    display: flex;
+      font-family: "Inter", sans-serif;
+    align-items: center;
+    font-size: .9rem;
+   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+.pay-text{
+    font-size: .85rem;
+}
+.pay svg{
+    width: 18px;
+    height: 100%;
+    margin-right: 7px;
+}
+.radio{
+    width:22px;
+    height:22px;
+    border: 1px solid #D1C7BF;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+}
+
+.radio-dot{
+    width:10px;
+    height:10px;
+    background:var(--color-vino);
+    border-radius:50%;
+}
+.active{
+    border: 1px solid var(--color-vino);
+    background: transparent;
+}

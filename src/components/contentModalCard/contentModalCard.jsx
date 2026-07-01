@@ -2,9 +2,11 @@ import { useState } from 'react';
 import './contentModalCard.css';
 import ProductDetails from "./product-detail.jsx";
 import Quantity from "./quantity.jsx";
-import CartOutlineIcon from '@iconify-react/ion/cart-outline';
+// import CartOutlineIcon from '@iconify-react/ion/cart-outline';
 import notFound from "../../assets/notFound.png"
 import {useCart} from "../../hooks/useCart.jsx"
+import ButtonIcon from '../buttons/buttonIcon.jsx';
+import {CartIcon} from "../../utils/icons.jsx"
 const ContentModalCard = ({product}) => {
 
   const ahorro=product.offer!=null ? product.offer.price - product.price:"";
@@ -39,10 +41,7 @@ const ContentModalCard = ({product}) => {
           </svg>
           <p>Cantidad: 2kg (4 unidades)</p>
         </span>
-        <button className="btnAddCart" onClick={productoAnadir}>
-          <CartOutlineIcon height="25"/>
-          Agregar al carrito
-        </button>
+        <ButtonIcon clase="btnAddCart" nombre="Agregar al carrito" onclick={productoAnadir} icon={<CartIcon/>}/>
         <p className="shipping">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
