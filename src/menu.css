@@ -49,4 +49,5 @@ font-family: "Cormorant Garamond", serif;
 .div-category-span{
     height: 100%;
      scroll-margin-top: 60px;
+     overflow-x: hidden;
 }

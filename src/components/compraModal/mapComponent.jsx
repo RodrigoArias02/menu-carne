@@ -23,8 +23,7 @@ const MapUpdater = ({ latitude, longitude }) => {
   return null;
 };
 
-const MapComponent = forwardRef(
-  ({ latitude, longitude, onMarkerDragEnd }, ref) => {
+const MapComponent = forwardRef(({ latitude, longitude, onMarkerDragEnd }, ref) => {
     const markerRef = useRef(null);
 
     useEffect(() => {
@@ -45,7 +44,7 @@ const MapComponent = forwardRef(
         ref={ref}
         center={[latitude || 0, longitude || 0]}
         zoom={13}
-        style={{ height: "400px", width: "100%" }}
+        style={{ height: "200px", width: "100%" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

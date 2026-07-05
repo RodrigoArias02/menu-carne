@@ -68,7 +68,7 @@ function ComprarModal() {
           <span>$400</span>
         </p>
       </div>
-      <ButtonIcon clase="btnAddCart" nombre="CONFIRMAR PEDIDO" onclick={""} icon={<CheckIcon />} />
+      <ButtonIcon clase="btnAddCart btnMargin" nombre="CONFIRMAR PEDIDO" onclick={""} icon={<CheckIcon />} />
     </div>
   );
 }

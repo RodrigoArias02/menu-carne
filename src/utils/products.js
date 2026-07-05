@@ -215,7 +215,14 @@ export const categoryOrder = {
   chorizos: ["Tradición, sabor y calidad para tu parrilla."],
   combos: ["Más variedad y ahorro en una sola compra."],
 };
-
+export const categories = [
+  { id: "milanesas", name: "Milanesas", image: milas },
+  { id: "hamburguesas", name: "Hamburguesas", image: burguer },
+  { id: "pollo", name: "Aves", image: pollo },
+  { id: "carne", name: "Carne Vacuna", image: vaca },
+  { id: "chorizos", name: "Chorizos", image: chori },
+  { id: "combos", name: "Combos", image: combos },
+];
 export default function agruparProductos(products) {
   return products.reduce((acc, product) => {
     if (!acc[product.category]) {
@@ -227,15 +234,6 @@ export default function agruparProductos(products) {
     return acc;
   }, {});
 }
-
-export const categories = [
-  { id: "milanesas", name: "Milanesas", image: milas },
-  { id: "hamburguesas", name: "Hamburguesas", image: burguer },
-  { id: "pollo", name: "Aves", image: pollo },
-  { id: "carne", name: "Carne Vacuna", image: vaca },
-  { id: "chorizos", name: "Chorizos", image: chori },
-  { id: "combos", name: "Combos", image: combos },
-];
 export const precioOfertaPorKg=(product)=>{
   return  condicionOferta(product) ? product.offer.price / product.offer.kg : "";
 }
@@ -244,18 +242,17 @@ export const precioNormalPorKg=(product)=>{
 }
 export const descuentoPorProducto = (product)=>{
   let descuento;
-  if(product.offer!=null){
+  if(condicionOferta(product)){
     descuento=product.price*product.quantity-(precioOfertaPorKg(product))*product.quantity;
-  }else{
-    descuento=null;
   }
+  console.log("descuento por producto",descuento)
   return descuento
 }
 export const descuentoTotalProductos = (cart)=>{
   let descuento=0;
   cart.forEach(product => {
-    if(product.offer!=null){
-    descuento=descuento+descuentoPorProducto(product)
+    if(condicionOferta(product)){
+      descuento=descuento+descuentoPorProducto(product)
     }
   });
 
@@ -273,7 +270,17 @@ export const condicionOferta=(product)=>{
   if(product.offer!=null && product.quantity >= product.offer.kg){
     return true
   }else{
-
     return false
   }
+}
+export const totalPrecioProductos = (cart)=>{
+  let total=0;
+  cart.forEach(product => {
+    if(condicionOferta(product)){
+      total=total+precioTotalOfertaPorProducto(product)
+    }else{
+      total=total+precioNormalPorKg(product)
+    }
+  });
+  return total
 }

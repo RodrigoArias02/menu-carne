@@ -13,7 +13,6 @@ import { useState } from "react";
 import { products, categoryOrder } from "./utils/products.js";
 import agruparProductos from "./utils/products.js";
 import { useCart } from "./hooks/useCart.jsx";
-
 function Menu() {
   const { cart, totalCart } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);

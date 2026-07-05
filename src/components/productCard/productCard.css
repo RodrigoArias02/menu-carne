@@ -13,7 +13,7 @@
     background: #76242D;
     position: absolute;
     left: 13px;
-    padding: 10px 5px;
+    padding: 8px 1px;
     border-radius: 16px 16px 26px 26px;
     color: white;
     gap: 2px;
@@ -31,53 +31,61 @@
 }
 .cart-off p:nth-child(1){
     display: flex;
-    font-size: .5rem;
+    font-size: .45rem;
     gap: 5px;
+    padding: 0px 2px;
 }
 
 .cart-off p:nth-child(2){
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     
 }
 .cart-off p:nth-child(3){
-    font-size: .7rem;
+    font-size: .6rem;
     font-weight: 600;
 }
 .product-card img{
     width:100%;
     height:100%;
     object-fit:cover;
-    max-width:40%;
+    max-width:48%;
 }
 
 .product-info{
     display: flex;
-    padding:12px;
+    padding:3px 12px 12px 12px;
     width:100%;
-    height:100%;
+    gap: 3px;
     max-height:208px;
     flex-direction:column;
     justify-content:space-between;
-}
-
-.product-info h3{
-    font-family:serif;
-    font-size:1.2rem;
-    margin-bottom:5px;
-    max-height: 44px;
     overflow: hidden;
 }
 
-.product-info p{
-    color:#555;
-    margin-bottom:10px;
-    height: 38px;
+.product-info h3 {
+     font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.; /* Define el alto de cada línea */
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita el texto a exactamente 2 líneas */
+    -webkit-box-orient: vertical;  
     overflow: hidden;
+}
+.description-info-card {
+    font-family: "Inter", sans-serif;
+    color: #555;
+    font-size: .8rem;
+    white-space: nowrap; /* Evita que el texto salte de línea */
+    overflow: hidden;    /* Esconde lo que se desborda */
+    text-overflow: ellipsis; /* ¡Aquí está la magia! Agrega el "..." */
 }
 .prices{
     display: flex;
     gap: 5px;
+    font-family: "Inter", sans-serif;
+    font-size: .9rem;
 }
 .prices span{
     margin: auto 0;
@@ -88,24 +96,23 @@
 .price{
     display:block;
     color:#4e2633;
-    font-size:1.5rem;
+    font-size:1.2rem;
     font-weight:bold;
-
+    font-weight: 600;
     margin-bottom:10px;
 }
 
 .add-btn{
     width:100%;
-
-    padding:10px;
-
+    padding:6px 10px;
     border-radius:10px;
     border:2px solid #4e2633;
-
     background:white;
     color:#4e2633;
     margin-top:auto;
-    font-weight:bold;
+    font-weight:600;
+    font-family: "Inter", sans-serif;
+    background:#F5F2EB;
 }
 .category-products{
     display:flex;
@@ -126,7 +133,7 @@ flex:1;
 .product-card:nth-child(1) img,
 .product-card:nth-child(2) img {
     width: 100%;
-    height: 185px;
+    height: 130px;
     object-fit: cover;
     max-width: none; /* Ahora sí se aplicará solo a las dos primeras */
 }

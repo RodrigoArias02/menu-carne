@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { MapIcon, UbicationIcon, LocationIcon } from "../../utils/icons";
 import MapComponent from "./mapComponent.jsx";
 import "./addressMap.css";
@@ -10,40 +10,15 @@ function AddressMap() {
   const [latitude, setLatitude] = useState(-38.5550); // Default Necochea
   const [longitude, setLongitude] = useState(-58.7400);
   const [isSearching, setIsSearching] = useState(false);
-  const [isGeolocating, setIsGeolocating] = useState(false);
-  const mapRef = useRef(null);
-
-  // Función auxiliar para hacer reverse geocoding
-  const reverseGeocode = async (lat, lon) => {
-    try {
-      const res = await fetch(
-        `https://photon.komoot.io/reverse/?lat=${lat}&lon=${lon}&limit=1`,
-      );
-      if (!res.ok) throw new Error("Error en reverse geocoding");
-
-      const data = await res.json();
-
-      if (data.features && data.features.length > 0) {
-        const feature = data.features[0];
-        const properties = feature.properties;
-
-        // Extraemos la calle y el número
-        let streetName = properties.street || "";
-        const houseNumber = properties.housenumber || "";
-
-        // Verificamos si ya tiene "Calle" en el nombre
-        if (streetName && !streetName.toLowerCase().includes("calle")) {
-          streetName = `Calle ${streetName}`;
-        }
-
-        setStreet(streetName || "");
-        setNumber(houseNumber || "");
-        setError("");
-      }
-    } catch (err) {
-      console.error("Error en reverse geocoding:", err);
-    }
-  };
+ 
+  useEffect(() => {
+    console.log("Datos de entrega:", {
+      street,
+      number,
+      latitude,
+      longitude,
+    });
+  }, [street, number, latitude, longitude]);
 
   // Función para buscar dirección con Photon
   const handleSearch = async () => {
@@ -94,49 +69,11 @@ function AddressMap() {
     }
   };
 
-  // Función para usar geolocalización del navegador
-  const handleUseMyLocation = () => {
-    setIsGeolocating(true);
-    setError("");
-
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-
-          setLatitude(lat);
-          setLongitude(lon);
-
-          // Hacemos reverse geocoding para obtener la dirección
-          await reverseGeocode(lat, lon);
-          setIsGeolocating(false);
-        },
-        (err) => {
-          console.error("Error de geolocalización:", err);
-          setError(
-            "No se pudo obtener tu ubicación. Verifica los permisos del navegador.",
-          );
-          setIsGeolocating(false);
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 10000,
-          maximumAge: 0,
-        },
-      );
-    } else {
-      setError("Tu navegador no soporta geolocalización.");
-      setIsGeolocating(false);
-    }
-  };
-
   // Manejador de cambio de posición del marcador
-  const handleMarkerDragEnd = async (newLat, newLon) => {
-    setLatitude(newLat);
-    setLongitude(newLon);
-    await reverseGeocode(newLat, newLon);
-  };
+  const handleMarkerDragEnd = (newLat, newLon) => {
+  setLatitude(newLat);
+  setLongitude(newLon);
+};
 
   return (
     <section className="section-address-map">
@@ -180,21 +117,14 @@ function AddressMap() {
               onClick={handleSearch}
               disabled={!street.trim() || !number.trim() || isSearching}
               className="btn-search"
+
             >
               <span>
                 <LocationIcon />
               </span>
               {isSearching ? "Buscando..." : "Cargar posicion en el mapa"}
             </button>
-            <button
-              type="button"
-              onClick={handleUseMyLocation}
-              disabled={isGeolocating}
-              className="btn-geolocation"
-              title="Usar mi ubicación actual"
-            >
-              {isGeolocating ? "Localizando..." : "📍 Mi ubicación"}
-            </button>
+
           </div>
         </div>
 
@@ -219,7 +149,7 @@ function AddressMap() {
 
         {/* Componente de mapa interactivo con Leaflet */}
         <MapComponent
-          ref={mapRef}
+       
           latitude={latitude}
           longitude={longitude}
           onMarkerDragEnd={handleMarkerDragEnd}

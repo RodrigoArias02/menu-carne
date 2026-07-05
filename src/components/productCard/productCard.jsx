@@ -14,7 +14,7 @@ function ProductCard({ image, name,description, price, offer, onClick }) {
 
         <h3>{name}</h3>
 
-        <p>{description}</p>
+        <p className="description-info-card">{description}</p>
 
         <p className="prices">
           <span className="price">

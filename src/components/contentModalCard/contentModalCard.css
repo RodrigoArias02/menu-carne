@@ -14,9 +14,9 @@
 .content-modal-card{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: calc(100% - 25px);
-    margin-top: 30px;
+    justify-content: flex-start;
+    height: 100%;
+
 }
 .content-modal-card h2{
   font-family: "Cormorant Garamond", serif;
@@ -190,7 +190,7 @@
     position: relative;
     font-size: .8rem;
     gap: 5px;
-    margin: 10px 0px 5px 0px;
+    margin-top: auto;
 }
 .shipping svg{
     width: 15px;

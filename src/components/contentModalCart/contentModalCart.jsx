@@ -10,13 +10,12 @@ import {
   descuentoTotalProductos,
   porcentajeDescuento,
   precioTotalOfertaPorProducto,
-
 } from "../../utils/products.js";
 
 function ContentModalCart({onSiguientePaso}) {
   const { clearCart, cart, totalCart, subTotalCart, removeFromCart } = useCart();
   const descuentoTotal = descuentoTotalProductos(cart);
-
+  
   return (
     <aside className="cart-modal">
       <header className="cart-header">

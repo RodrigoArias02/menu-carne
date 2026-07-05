@@ -1,5 +1,5 @@
 import {useEffect, useState } from "react";
-
+import { condicionOferta, precioTotalOfertaPorProducto, precioNormalPorKg } from "../utils/products.js";
 import { CartContext } from "./cartContext.jsx"
 
 export function CartProvider({ children }) {
@@ -62,10 +62,14 @@ export function CartProvider({ children }) {
     (acc, item) => acc +  item.price * item.quantity,
     0
   );
-  const totalCart = cart.reduce(
-    (acc, item) => acc + (item.offer!=null? (item.offer.price/item.offer.kg)* item.quantity : item.price * item.quantity),
-    0
-  );
+  const totalCart = cart.reduce((total, product) => {
+    if (condicionOferta(product)) {
+      return total + precioTotalOfertaPorProducto(product);
+    } else {
+      return total + precioNormalPorKg(product);
+    }
+  }, 0); // <-- Este 0 es el valor inicial de 'total'
+  
 
   return (
     <CartContext.Provider
