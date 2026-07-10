@@ -82,4 +82,5 @@
   font-size: 0.8rem;
   bottom: 10px;
   padding-top: 15px;
+      margin-bottom: calc(env(safe-area-inset-bottom) + 16px);
 }
