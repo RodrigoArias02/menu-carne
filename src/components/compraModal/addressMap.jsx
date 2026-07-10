@@ -3,28 +3,30 @@ import { MapIcon, UbicationIcon, LocationIcon } from "../../utils/icons";
 import MapComponent from "./mapComponent.jsx";
 import "./addressMap.css";
 
-function AddressMap() {
+// 1. Agregamos 'locality' y 'setLocality' a las props
+function AddressMap({setDatos} ) {
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
+  const [locality, setLocality] = useState("");
   const [error, setError] = useState("");
   const [latitude, setLatitude] = useState(-38.5550); // Default Necochea
   const [longitude, setLongitude] = useState(-58.7400);
   const [isSearching, setIsSearching] = useState(false);
- 
+
   useEffect(() => {
-    console.log("Datos de entrega:", {
+    setDatos({
       street,
       number,
+      locality,
       latitude,
       longitude,
     });
-  }, [street, number, latitude, longitude]);
+  }, [street, number, locality, latitude, longitude, setDatos]);
 
   // Función para buscar dirección con Photon
   const handleSearch = async () => {
     setError("");
 
-    // 1. Validaciones iniciales
     if (!street.trim() || !number.trim()) {
       setError("Por favor, completa la calle y la altura.");
       return;
@@ -33,12 +35,10 @@ function AddressMap() {
     setIsSearching(true);
 
     try {
-      // Detectamos si el usuario ya escribió "calle". Si no, se la sumamos al principio.
       const streetClean = street.trim();
       const hasCalle = streetClean.toLowerCase().includes("calle");
       const formattedStreet = hasCalle ? streetClean : `Calle ${streetClean}`;
 
-      // 2. Concatenamos la dirección final para buscar en la API
       const fullAddress = `${formattedStreet} ${number.trim()}, Necochea`;
       const bbox = "-58.8100,-38.6000,-58.6400,-38.5100";
 
@@ -50,13 +50,21 @@ function AddressMap() {
 
       const data = await res.json();
 
-      // 3. Si Photon encontró el lugar, actualizamos el mapa
       if (data.features && data.features.length > 0) {
-        const [lon, lat] = data.features[0].geometry.coordinates;
+        const bestResult = data.features[0];
+        const [lon, lat] = bestResult.geometry.coordinates;
+
+        // 2. Extraemos la localidad desde las propiedades de Photon
+        // Photon suele devolver la localidad en 'district', 'suburb' o 'city'
+        const properties = bestResult.properties;
+        const detectedLocality = properties.district || properties.suburb || properties.city || "Necochea";
 
         // Actualizamos las coordenadas del mapa
         setLatitude(lat);
         setLongitude(lon);
+        
+        // 3. Guardamos la localidad en el estado del padre
+        setLocality(detectedLocality); 
         setError("");
       } else {
         setError("No se encontró la ubicación exacta en Necochea/Quequén.");

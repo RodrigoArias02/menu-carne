@@ -1,6 +1,6 @@
 import "./contentModalCart.css";
 import Quantity from "../contentModalCard/quantity.jsx";
-import { TrashIcon, TruckIcon } from "../../utils/icons.jsx";
+import { TrashIcon } from "../../utils/icons.jsx";
 import { useCart } from "../../hooks/useCart.jsx";
 import {
   condicionOferta,
@@ -19,7 +19,6 @@ function ContentModalCart({onSiguientePaso}) {
   return (
     <aside className="cart-modal">
       <header className="cart-header">
-        <h2>Mi Carrito</h2>
         <p>{cart.length} productos</p>
       </header>
 
@@ -123,10 +122,7 @@ function ContentModalCart({onSiguientePaso}) {
           <TrashIcon /> VACIAR CARRITO
         </button>
 
-        <p className="shipping-info">
-          <TruckIcon />
-          Envío a Necochea y zonas cercanas
-        </p>
+
       </footer>
     </aside>
   );

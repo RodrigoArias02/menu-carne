@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
-
+    flex-grow: 1;
 }
 .content-modal-card h2{
   font-family: "Cormorant Garamond", serif;
@@ -183,19 +183,7 @@
 }
 
 
-.shipping{
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    position: relative;
-    font-size: .8rem;
-    gap: 5px;
-    margin-top: auto;
-}
-.shipping svg{
-    width: 15px;
-    height: 15px;
-}
+
 .lineThrough{
     text-decoration: line-through;
 }

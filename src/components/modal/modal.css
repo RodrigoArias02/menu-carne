@@ -9,10 +9,12 @@
     max-width: 430px;
 }
 .modal-content{
+    display:flex;
+    flex-direction:column;
     width:100%;
-    height:100vh;
+    min-height:100vh;
     background:#F8F4EE;
-    padding:50px 15px 5px 15px;
+    padding:20px 15px 5px 15px;
     position:relative;
     font-family: sans-serif;
     overflow-y: auto;
@@ -26,7 +28,7 @@
     border:none;
     font-size:28px;
     cursor:pointer;
-    top:10px;
+    top:18px;
     font-weight:100;
     display:flex;
     align-items:center;
@@ -62,4 +64,22 @@
   font-weight: bold;
   text-align: center;
   left: 10px; /* Ajusta según sea necesario */
+}
+.modal-header-container{
+    height:30px
+}
+.modal-header-container h2{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+}
+.shipping-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  bottom: 10px;
+  padding-top: 15px;
 }

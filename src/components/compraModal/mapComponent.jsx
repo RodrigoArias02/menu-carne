@@ -1,5 +1,6 @@
 import { useEffect, useRef, forwardRef } from "react";
-import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap, Polygon } from "react-leaflet";
+import { zonaGratis, zonaIntermedia, zonaQuequen } from "../../utils/shipping.js";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -23,6 +24,7 @@ const MapUpdater = ({ latitude, longitude }) => {
   return null;
 };
 
+
 const MapComponent = forwardRef(({ latitude, longitude, onMarkerDragEnd }, ref) => {
     const markerRef = useRef(null);
 
@@ -44,7 +46,7 @@ const MapComponent = forwardRef(({ latitude, longitude, onMarkerDragEnd }, ref) 
         ref={ref}
         center={[latitude || 0, longitude || 0]}
         zoom={13}
-        style={{ height: "200px", width: "100%" }}
+        style={{ height: "150px", width: "100%" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -58,6 +60,30 @@ const MapComponent = forwardRef(({ latitude, longitude, onMarkerDragEnd }, ref) 
             dragend: handleMarkerDragEnd,
           }}
         />
+        <Polygon
+          positions={zonaGratis}
+          pathOptions={{
+              color: "green",
+              fillOpacity: 0.2,
+          }}
+      />
+
+        <Polygon
+          positions={zonaIntermedia}
+          pathOptions={{
+              color: "orange",
+              fillOpacity: 0.2,
+          }}
+      />
+              <Polygon
+          positions={zonaQuequen}
+          pathOptions={{
+              color: "red",
+              fillOpacity: 0.2,
+          }}
+      />
+
+
         <MapUpdater latitude={latitude} longitude={longitude} />
       </MapContainer>
     );

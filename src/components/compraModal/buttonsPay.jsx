@@ -1,5 +1,5 @@
 import "./buttonPay.css";
-import { useState } from "react";
+
 import { CardIcon, MoneyIcon, BankIcon } from "../../utils/icons";
 
 // 1. Definimos los métodos de pago con sus propiedades(refactorizando)
@@ -16,8 +16,7 @@ const PAYMENT_METHODS = [
   },
 ];
 
-function ButtonPay() {
-  const [pay, setPay] = useState(null);
+function ButtonPay({pay, setPay}) {
   
   return (
     <div className="div-pay">

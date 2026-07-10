@@ -69,7 +69,9 @@ export function CartProvider({ children }) {
       return total + precioNormalPorKg(product);
     }
   }, 0); // <-- Este 0 es el valor inicial de 'total'
-  
+  const listCart = cart.map((product) => {
+    return `${product.name} x${product.quantity }  `;
+  });
 
   return (
     <CartContext.Provider
@@ -79,6 +81,7 @@ export function CartProvider({ children }) {
         removeFromCart,
         updateQuantity,
         clearCart,
+        listCart,
         subTotalCart,
         totalCart,
         totalItems,

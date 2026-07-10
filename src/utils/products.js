@@ -245,7 +245,7 @@ export const descuentoPorProducto = (product)=>{
   if(condicionOferta(product)){
     descuento=product.price*product.quantity-(precioOfertaPorKg(product))*product.quantity;
   }
-  console.log("descuento por producto",descuento)
+  
   return descuento
 }
 export const descuentoTotalProductos = (cart)=>{
@@ -284,3 +284,37 @@ export const totalPrecioProductos = (cart)=>{
   });
   return total
 }
+
+export const validarDatos = (cliente, datos, pay) => {
+  
+  if (!cliente.nombre.trim()) {
+    alert("Ingrese su nombre y apellido.");
+    return false;
+  }
+
+  if (!cliente.telefono.trim()) {
+    alert("Ingrese su teléfono.");
+    return false;
+  }
+
+  if (!datos.street?.trim()) {
+    alert("Ingrese la calle.");
+    return false;
+  }
+
+  if (!datos.number?.trim()) {
+    alert("Ingrese la altura.");
+    return false;
+  }
+
+  if (!datos.locality?.trim()) {
+    alert("Ingrese la localidad.");
+    return false;
+  }
+
+  if (!pay) {
+    alert("Seleccione un método de pago.");
+    return false;
+  }
+  return true;
+};

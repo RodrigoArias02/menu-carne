@@ -13,22 +13,26 @@ import { useState } from "react";
 import { products, categoryOrder } from "./utils/products.js";
 import agruparProductos from "./utils/products.js";
 import { useCart } from "./hooks/useCart.jsx";
+import { TruckIcon } from "./utils/icons.jsx";
 function Menu() {
   const { cart, totalCart } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalChildren, setModalChildren] = useState(null);
   const [claseNone, setClaseNone] = useState("");
   const groupedProducts = agruparProductos(products);
+  const [titleModal, setTitleModal] = useState("");
 
   const openProductModal = (product) => {
-  
-      setClaseNone("")
+    setTitleModal("")
+    setClaseNone("")
     setModalChildren(
       <ContentModalCard product={product} />
     );
     setIsModalOpen(true);
   };
   const openConfirmarPedidoModal = () => {
+    setTitleModal("Confirmar Pedido")
+ 
     setModalChildren(
     <ComprarModal /> // El componente que querés que se abra ahora
   );
@@ -36,7 +40,7 @@ function Menu() {
 };
   const openCartModal = () => {
     setClaseNone("none");
-    
+    setTitleModal("mi carrito")
     setModalChildren(
       // Le pasamos la función al carrito mediante una prop (ej: onSiguientePaso)
       <ContentModalCart 
@@ -44,18 +48,33 @@ function Menu() {
         onSiguientePaso={openConfirmarPedidoModal} 
       />
     );
+    
     setIsModalOpen(true);
+   
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
     setModalChildren(null);
   };
-
   return (
     <div className="menu-container">
-      <Modal isOpen={isModalOpen} onClose={closeModal} clase={claseNone}>
+      <Modal isOpen={isModalOpen} 
+      onClose={closeModal} 
+      clase={claseNone}
+      header={
+    <>
+    <h2 className={titleModal.includes("Confirmar Pedido")?"text-center":""}>{titleModal}</h2>
+      <button className="modal-close" onClick={closeModal}>
+        <i className="fa-solid fa-xmark"></i>
+      </button>
+    </>
+  }
+      >
         {modalChildren}
+                      <p className="shipping-info">
+          <TruckIcon />
+          Envío a Necochea y zonas cercanas
+        </p>
       </Modal>
 
       <Header />
