@@ -47,6 +47,7 @@ const MapComponent = forwardRef(({ latitude, longitude, onMarkerDragEnd }, ref) 
         center={[latitude || 0, longitude || 0]}
         zoom={13}
         style={{ height: "150px", width: "100%" }}
+        attributionControl={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

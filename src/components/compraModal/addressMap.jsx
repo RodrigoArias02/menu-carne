@@ -140,7 +140,7 @@ function AddressMap({setDatos} ) {
         {error && (
           <p
             className="error-message"
-            style={{ color: "red", fontSize: "14px", marginTop: "10px" }}
+            style={{ color: "red", fontSize: "14px" }}
           >
             {error}
           </p>

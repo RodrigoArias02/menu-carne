@@ -97,7 +97,7 @@ const envio = useMemo(() => {
       </div>
 
       <AddressMap setDatos={setDatos} />
-     
+     <section className="relativeClass">
       <div className="total">
         <hr />
         <article>
@@ -107,7 +107,7 @@ const envio = useMemo(() => {
           </p>
           <p>
             <span>Envio</span>
-            <span>${envio.costo}</span>
+            <span className={envio.costo==0?"green":""}>{envio.costo==0?"Gratis":"$"+envio.costo}</span>
           </p>
         </article>
 
@@ -116,8 +116,10 @@ const envio = useMemo(() => {
           <span>TOTAL</span>
           <span>${totalCart+envio.costo}</span>
         </p>
+        <ButtonIcon clase="btnAddCart btnMargin" nombre="CONFIRMAR PEDIDO" onclick={()=>handleWhatsAppClick()} icon={<CheckIcon />} />
       </div>
-      <ButtonIcon clase="btnAddCart btnMargin" nombre="CONFIRMAR PEDIDO" onclick={()=>handleWhatsAppClick()} icon={<CheckIcon />} />
+     </section>
+
     </div>
   );
 }

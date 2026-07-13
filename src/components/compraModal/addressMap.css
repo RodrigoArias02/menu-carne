@@ -1,7 +1,7 @@
 .section-address-map {
   display: flex;
   flex-direction: column;
-
+  gap: 5px;
 }
 
 .address-search {
@@ -10,6 +10,9 @@
   gap: 10px;
 }
 .address-section-inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   height:min-content;
 }
 
@@ -33,7 +36,7 @@
   align-items: center;
   justify-content: center;
   background:transparent;
-  margin-bottom:15px;
+  margin-bottom:6px;
   width:100%;
 }
 .address-search button span{
@@ -91,3 +94,6 @@
 }
 
 
+.mapStyle{
+  border-radius: 16px;
+}

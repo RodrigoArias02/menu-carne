@@ -14,6 +14,7 @@ export const products = [
     offer: { kg: 2, price: 2100 },
     category: "milanesas",
     image: "https://carneya.com.ar/wp-content/uploads/2024/03/milanesa-de-pollo-01.webp",
+    unidadesPorKg: 6,
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const products = [
     offer: { kg: 2, price: 2700 },
     category: "milanesas",
     image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/milanesas-de-c76d65bb0b0bc3dfc217128641403679-1024-1024.webp",
+    unidadesPorKg: 5,
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const products = [
     offer: null,
     category: "milanesas",
     image: "https://www.crujen.com.ar/images/productos/crujen/medium/image2022081413132091586.jpg",
+    unidadesPorKg: 4,
   },
   {
     id: 4,
@@ -44,6 +47,7 @@ export const products = [
     offer: { kg: 2, price: 3200 },
     category: "hamburguesas",
     image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/28-87d81c47962baa103c17234880082479-1024-1024.webp",
+    unidadesPorKg: 8,
   },
   {
     id: 5,
@@ -54,6 +58,7 @@ export const products = [
     offer: { kg: 2, price: 3900 },
     category: "hamburguesas",
     image: "https://img.freepik.com/fotos-premium/hamburguesas-carne-cruda-empanadas-carne-molida-tomillo-sobre-tabla-cortar-madera-fondo-madera-oscura-vista-superior_89816-27893.jpg",
+    unidadesPorKg: 6,
   },
   {
     id: 6,
@@ -64,6 +69,7 @@ export const products = [
     offer: null,
     category: "hamburguesas",
     image: "https://granjaselpato.com.ar/wp-content/uploads/2021/05/hamb-verdeo-2.jpg",
+    unidadesPorKg: 8,
   },
   {
     id: 7,
@@ -74,6 +80,7 @@ export const products = [
     offer: { kg: 2, price: 3500 },
     category: "pollo",
     image: "https://www.shutterstock.com/image-photo/raw-chicken-breast-bone-skin-260nw-2358056743.jpg",
+    unidadesPorKg: 4,
   },
   {
     id: 8,
@@ -84,6 +91,7 @@ export const products = [
     offer: null,
     category: "pollo",
     image: "https://media.istockphoto.com/id/1074830312/es/foto/pechuga-de-pollo-org%C3%A1nico-crudo.jpg?s=612x612&w=0&k=20&c=-dCyN8Iks0MqGSwcFBO5TOWcVXMsJkNLBdyoSS2Ei1w=",
+    unidadesPorKg: 4,
   },
   {
     id: 9,
@@ -94,6 +102,7 @@ export const products = [
     offer: { kg: 3, price: 3000 },
     category: "pollo",
     image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/pata-y-muslo-8ad3129d544b1eee7217128517940397-1024-1024.webp",
+    unidadesPorKg: 3,
   },
   {
     id: 10,
@@ -104,6 +113,7 @@ export const products = [
     offer: null,
     category: "pollo",
     image: "/images/alitas.jpg",
+    unidadesPorKg: 12,
   },
   {
     id: 11,
@@ -114,6 +124,7 @@ export const products = [
     offer: { kg: 2, price: 2500 },
     category: "carne",
     image: "https://acdn-us.mitiendanube.com/stores/003/087/133/products/carne-picada-001dcf00a982bc722c17442951212844-1024-1024.webp",
+    unidadesPorKg: 1, // Se vende suelta/entera por kg
   },
   {
     id: 12,
@@ -124,6 +135,7 @@ export const products = [
     offer: null,
     category: "carne",
     image: "https://raffe.com.ar/wp-content/uploads/2019/06/Bife-de-Chorizo-Raffe.jpg",
+    unidadesPorKg: 3,
   },
   {
     id: 13,
@@ -134,6 +146,7 @@ export const products = [
     offer: { kg: 2, price: 4700 },
     category: "carne",
     image: "https://carnesargentinas.es/wp-content/uploads/2020/05/vacio-entero-1.jpg",
+    unidadesPorKg: 1, // Se calcula por pieza/kg entero
   },
   {
     id: 14,
@@ -144,6 +157,7 @@ export const products = [
     offer: null,
     category: "carne",
     image: "https://thumbs.dreamstime.com/b/asado-crudo-8478920.jpg",
+    unidadesPorKg: 2, // Tiras aproximadas por kg
   },
   {
     id: 15,
@@ -154,6 +168,7 @@ export const products = [
     offer: { kg: 2, price: 3400 },
     category: "chorizos",
     image: "/images/chorizo.jpg",
+    unidadesPorKg: 8,
   },
   {
     id: 16,
@@ -164,6 +179,7 @@ export const products = [
     offer: null,
     category: "chorizos",
     image: "/images/chorizo-bombon.jpg",
+    unidadesPorKg: 16,
   },
   {
     id: 17,
@@ -174,6 +190,7 @@ export const products = [
     offer: { kg: 2, price: 4000 },
     category: "chorizos",
     image: "/images/chorizo-especial.jpg",
+    unidadesPorKg: 8,
   },
   {
     id: 18,
@@ -184,6 +201,7 @@ export const products = [
     offer: null,
     category: "combos",
     image: "/images/combo-parrilla.jpg",
+    unidadesPorKg: null,
   },
   {
     id: 19,
@@ -194,6 +212,7 @@ export const products = [
     offer: null,
     category: "combos",
     image: "/images/combo-burger.jpg",
+    unidadesPorKg: null,
   },
   {
     id: 20,
@@ -204,6 +223,7 @@ export const products = [
     offer: null,
     category: "combos",
     image: "/images/combo-familiar.jpg",
+    unidadesPorKg: null,
   },
 ];
 

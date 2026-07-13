@@ -4,7 +4,7 @@ import ClockIcon from '@iconify-react/mdi-light/clock';
 import CartOutlineIcon from '@iconify-react/ion/cart-outline';
 import MagnifyIcon from '@iconify-react/mdi-light/magnify';
 import { useCart } from "../../hooks/useCart";
-function Navbar({openCartModal}) {
+function Navbar({openCartModal,openScheduleModal}) {
   const {cart}=useCart()
   return (
     <nav className="top-nav">
@@ -14,7 +14,7 @@ function Navbar({openCartModal}) {
         MENU
       </span>
       <CartOutlineIcon height="25"  onClick={() => openCartModal(cart)} />
-     <ClockIcon height="25" />
+     <ClockIcon height="25"   onClick={() => openScheduleModal()} />
     </nav>
   );
 }

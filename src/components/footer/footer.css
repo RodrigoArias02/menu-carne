@@ -1,0 +1,14 @@
+.menu-footer{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-family: "Inter", sans-serif;
+    height: 90px;
+    text-align: center;
+    font-size: .8rem;
+}
+.menu-footer a{
+    text-decoration: none;
+    padding: 10px 0px;
+    color: black;
+}

@@ -7,13 +7,15 @@ import Modal from "./components/modal/modal.jsx";
 import ContentModalCard from "./components/contentModalCard/contentModalCard.jsx";
 import ContentModalCart from "./components/contentModalCart/contentModalCart.jsx"; // <-- crearás este componente
 import ComprarModal from "./components/compraModal/compraModal.jsx";
+import HorarioModal from "./components/horarioModal/horarioModal.jsx";
+import Footer from "./components/footer/footer.jsx";
 import "./menu.css";
 
 import { useState } from "react";
 import { products, categoryOrder } from "./utils/products.js";
 import agruparProductos from "./utils/products.js";
 import { useCart } from "./hooks/useCart.jsx";
-import { TruckIcon } from "./utils/icons.jsx";
+
 function Menu() {
   const { cart, totalCart } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,6 +58,14 @@ function Menu() {
     setIsModalOpen(false);
     setModalChildren(null);
   };
+  const openScheduleModal=()=>{
+    setClaseNone("none");
+    setTitleModal("Horarios y contacto")
+    setClaseNone("clock")
+    setModalChildren(<HorarioModal />);
+    setIsModalOpen(true);
+  }
+   
   return (
     <div className="menu-container">
       <Modal isOpen={isModalOpen} 
@@ -71,15 +81,12 @@ function Menu() {
   }
       >
         {modalChildren}
-                      <p className="shipping-info">
-          <TruckIcon />
-          Envío a Necochea y zonas cercanas
-        </p>
+       
       </Modal>
 
       <Header />
 
-      <Navbar openCartModal={openCartModal} />
+      <Navbar openCartModal={openCartModal} openScheduleModal={openScheduleModal} />
 
       <h1 className="title">Menú de Productos</h1>
 
@@ -116,6 +123,7 @@ function Menu() {
         total={totalCart}
         onClick={() => openCartModal(cart)}
       />
+      <Footer/>
     </div>
   );
 }

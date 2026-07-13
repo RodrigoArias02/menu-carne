@@ -20,8 +20,8 @@
     flex-direction:column;
     width:100%;
     min-height:100%;
-    background:#F8F4EE;
-    padding:20px 15px 5px 15px;
+    background:#F9F6F4;
+    padding:5px 15px 5px 15px;
     position:relative;
     font-family: sans-serif;
     overflow-y: auto;
@@ -31,12 +31,12 @@
 .modal-close{
     position:absolute;
     color:var(--color-vino);
-    right:9px;
+    right:0px;
     background:none;
     border:none;
     font-size:28px;
     cursor:pointer;
-    top:8px;
+    top:0;
     font-weight:100;
     display:flex;
     align-items:center;
@@ -67,17 +67,22 @@
   transform:rotate(0deg);
   width:min-content;
   color: #f7f4ee; 
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
   left: 10px; /* Ajusta según sea necesario */
 }
 .modal-header-container{
-    height:30px
+    height: 15px;
+    display: flex; 
+    justify-content: center;
+    position: relative;
+    top: -15px;
+    padding: 8px 0px;
 }
 .modal-header-container h2{
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
     font-family: "Inter", sans-serif;
     font-weight: 500;
@@ -91,4 +96,9 @@
   bottom: 10px;
   padding-top: 15px;
   
+}
+.clock{
+    min-height: 0;
+    margin: 0;
+    margin-top: auto;
 }

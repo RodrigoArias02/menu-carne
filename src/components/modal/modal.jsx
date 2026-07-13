@@ -19,8 +19,8 @@ const Modal = ({ isOpen, onClose, children, clase, header }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className={"paralelogramo " + clase}>
+      <div className={clase=="clock"?"modal-content clock":"modal-content"} onClick={(e) => e.stopPropagation()}>
+        <div className={"paralelogramo " + clase=="clock"?"none":""}>
           <span className="texto-paralelogramo">Mas Elegido</span>
         </div>
         {/* 2. Si viene la prop header, la renderizamos en su propio contenedor */}

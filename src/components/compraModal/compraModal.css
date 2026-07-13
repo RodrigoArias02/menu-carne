@@ -15,7 +15,7 @@
     align-items: center; 
     gap: 5px;  
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -23,6 +23,9 @@
     display: flex;
     align-items: center; 
     gap: 5px;  
+}
+.div-modalCompra h3 span svg{
+    color: var(--color-vino);
 }
 /*  */
 .div-input{
@@ -51,6 +54,7 @@
 }.div-input .input span svg{
     width: 100%;
     height: 100%;
+    color: var(--color-vino);
 }
 .div-input .input input{
     width: 100%;
@@ -108,14 +112,20 @@ input{
 .total{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: calc(100% - 30px);
+    z-index: 3000;
+    background: #F9F6F4;
 }
 .total article p:first-child{
     margin-bottom: 5px;
 }
 .total hr{
     border: 1px solid #D1C7BF;
-    margin: 10px 0px;
+    margin: 3px 0px;
 
 }
 
@@ -130,9 +140,24 @@ input{
     font-weight: 600;
     margin:0;
 }
+.total-p span:nth-child(2){
+    color: var(--color-vino);
+}
 .buttonAdd{
     margin:0;
 }
 .text-center{
     text-align: center;
+}
+
+.relativeClass{
+    width: 100%;
+    position: relative;
+    padding-bottom: 165px;
+}
+.green{
+    color: rgb(12, 125, 12);
+}
+label{
+    margin-bottom: 5px;
 }

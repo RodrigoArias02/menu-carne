@@ -1,0 +1,199 @@
+.clock{
+    font-family: "Inter", sans-serif;
+    border-radius: 15px 15px 0px 0px;
+}
+
+/*---------------------*/
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+
+    margin:10px 0;
+}
+
+.section-title h2{
+    font-size:1.3rem;
+    font-family: "Cormorant Garamond", serif;
+    font-weight:600;
+    color:#4a2416;
+}
+
+.line{
+    width:80px;
+    height:2px;
+    background:#d8b88b;
+    border-radius:20px;
+    display: flex;
+
+    align-items: center;
+}
+.line:nth-child(3){
+    justify-content: end;
+}
+.circle-line{
+    width: 6px;
+    height: 6px;
+    background-color: #d8b88b;
+    border-radius:50%;
+    display:flex;
+    position: absolute;
+   
+}
+
+/*---------------------*/
+
+.schedule-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:5px;
+    margin-bottom:10px;
+    background:#EFE9E3;
+    border-radius:12px;
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.08);
+}
+
+.schedule-icon{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#E5D8CA;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#6a3d27;
+    padding: 6px;
+    flex-shrink:0;
+}
+.schedule-icon svg{
+    width: 100%;
+    height: 100%;
+}
+.schedule-info{
+    flex:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-left:18px;
+}
+
+.schedule-info span{
+    font-size:.9rem;
+    font-weight:600;
+}
+
+.schedule-info strong{
+    background:#E5D8CA;
+    padding:5px 15px;
+    border-radius:15px;
+    font-size:.9rem;
+}
+
+/*---------------------*/
+
+.redes{
+
+    margin-top:20px;
+}
+
+/*---------------------*/
+
+.socials{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.socials a{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+    font-weight:500;
+
+    transition:.25s;
+}
+
+.socials a:hover{
+
+    transform:translateY(-2px);
+}
+
+.socials .left{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+a svg{
+    font-size: 1.5rem;
+}
+
+/* Instagram */
+
+.socials a:nth-child(1){
+
+    background:linear-gradient(
+    90deg,
+    
+    #cb3d7b,
+    #AC2C5D,
+    #b20068);
+}
+
+/* WhatsApp */
+
+.socials a:nth-child(2){
+    background:linear-gradient(
+    90deg,
+    #5EB368,
+    #2acb62);
+}
+
+/* Facebook */
+
+.socials a:nth-child(3){
+
+    background:linear-gradient(
+    90deg,
+    #2a6bd5,
+    #4387f5
+    );
+}
+
+/*---------------------*/
+
+.delivery{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:35px;
+
+    color:#8d623d;
+
+    font-size:18px;
+    font-weight:500;
+}
+
+.delivery svg{
+
+    font-size:24px;
+}

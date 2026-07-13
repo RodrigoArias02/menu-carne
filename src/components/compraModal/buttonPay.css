@@ -14,7 +14,7 @@
     background: transparent;
     border: 1px solid #D1C7BF;
     background: #FFF;
-    border-radius: 8px;
+    border-radius: 6px;
     display: flex;
       font-family: "Inter", sans-serif;
     align-items: center;
@@ -42,12 +42,15 @@
 }
 
 .radio-dot{
-    width:10px;
-    height:10px;
+    width:65%;
+    height:65%;
     background:var(--color-vino);
     border-radius:50%;
 }
 .active{
-    border: 1px solid var(--color-vino);
+    border: 2px solid var(--color-vino);
     background: transparent;
+}
+.active svg{
+    color: var(--color-vino);
 }
